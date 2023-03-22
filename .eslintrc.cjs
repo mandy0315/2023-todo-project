@@ -18,5 +18,6 @@ module.exports = {
     'prefer-arrow-callback': 'off',
     'vue/multi-word-component-names': 'off',
     'prettier/prettier': ['error'],
+    '@typescript-eslint/no-unused-vars': 'off',
   },
 };
