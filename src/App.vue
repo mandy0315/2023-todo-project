@@ -6,6 +6,9 @@ const $todoStore = useTodoStore();
 
 <template>
   <div>
+    <v-icon icon="home" />
+    <v-btn>button</v-btn>
+    <v-text-field label="Label" variant="underlined"></v-text-field>
     <todoList />
   </div>
 </template>
