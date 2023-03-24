@@ -18,6 +18,7 @@ module.exports = {
     'prefer-arrow-callback': 'off',
     'vue/multi-word-component-names': 'off',
     'prettier/prettier': ['error'],
-    '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'off', // 關掉沒使用語法
+    '@typescript-eslint/no-this-alias': 'off', // 關掉禁止 this 別名
   },
 };
