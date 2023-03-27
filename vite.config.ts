@@ -3,10 +3,10 @@ import Components from 'unplugin-vue-components/vite';
 import vue from '@vitejs/plugin-vue';
 import path from 'path';
 import vuetify from 'vite-plugin-vuetify';
-import fs from 'fs';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: process.env.NODE_ENV === 'production' ? '/todo_ts-project' : '/',
   plugins: [
     Components({
       /* options */
