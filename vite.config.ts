@@ -6,7 +6,7 @@ import vuetify from 'vite-plugin-vuetify';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/todo_ts-project' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/todo_ts-project/' : '/',
   plugins: [
     Components({
       /* options */
