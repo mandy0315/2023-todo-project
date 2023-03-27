@@ -3,6 +3,7 @@ import Components from 'unplugin-vue-components/vite';
 import vue from '@vitejs/plugin-vue';
 import path from 'path';
 import vuetify from 'vite-plugin-vuetify';
+import fs from 'fs';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -20,6 +21,25 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+    },
+  },
+  build: {
+    rollupOptions: {
+      input: {
+        index: path.resolve(__dirname, 'index.html'),
+      },
+      output: {
+        entryFileNames: `assets/[name].js`, // 入口文件
+        chunkFileNames: `assets/[name].js`, // 非入口文件
+        assetFileNames: ({ name }) => {
+          const ext = name.slice(name.lastIndexOf('.'));
+
+          if (['.ttf', '.woff2'].includes(ext)) {
+            return `assets/font/${name}`;
+          }
+          return `assets/${name}`;
+        }, // 靜態檔案
+      },
     },
   },
 });

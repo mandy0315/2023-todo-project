@@ -1,8 +1,8 @@
 // https://vuetifyjs.com/en/getting-started/installation/#manual-steps
 import 'vuetify/styles';
-import 'material-design-icons-iconfont/dist/material-design-icons.css';
+import '@fortawesome/fontawesome-free/css/all.css';
 import { createVuetify, ThemeDefinition } from 'vuetify';
-import { aliases, md } from 'vuetify/iconsets/md';
+import { aliases, fa } from 'vuetify/iconsets/fa';
 
 const customTheme: ThemeDefinition = {
   dark: false,
@@ -21,10 +21,10 @@ const customTheme: ThemeDefinition = {
 
 export default createVuetify({
   icons: {
-    defaultSet: 'md',
+    defaultSet: 'fa',
     aliases,
     sets: {
-      md,
+      fa,
     },
   },
   theme: {
