@@ -58,7 +58,7 @@ onBeforeUnmount(() => {
 
 <template>
   <v-sheet class="mx-auto" max-width="560">
-    <h2 class="text-h4">報告內容項目清單</h2>
+    <h2 class="text-h4">項目清單</h2>
     <v-text-field
       label="請填寫項目"
       v-model="newTodo"
@@ -73,7 +73,7 @@ onBeforeUnmount(() => {
 
     <v-card color="c-gray-100 mt-4" rounded flat>
       <v-card-item>
-        <v-card-title class="text-h6 py-4">目前清單項目:{{ todosCount }}</v-card-title>
+        <v-card-title class="text-h6 py-4">目前項目:{{ todosCount }}</v-card-title>
         <v-card-subtitle class="d-flex align-center justify-space-between">
           <p>未完成: {{ uncompletedCount }} | 已完成: {{ completedCount }}</p>
           <v-progress-circular :model-value="progress" rotate="360" size="35" width="4">
