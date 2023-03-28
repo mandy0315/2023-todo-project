@@ -1,6 +1,6 @@
 # todo_ts-project
 
-![專案封面圖](https://imgur.com/KoFsUz3)
+![專案封面圖](https://i.imgur.com/KoFsUz3.png)
 
 - [Demo](https://mandy0315.github.io/todo_ts-project/)
 
