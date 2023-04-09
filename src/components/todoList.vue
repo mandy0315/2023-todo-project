@@ -2,8 +2,10 @@
 import { computed, ref, onBeforeUnmount, onMounted } from 'vue';
 import { Todo } from '@/types';
 
+// Vue3 本身是 TS 語法寫。 https://cn.vuejs.org/guide/typescript/overview.html#overview
+
 const todos = ref<Todo[]>([]);
-const newTodo = ref<string>('');
+const newTodo = ref('');
 
 const todosCount = computed(() => todos.value?.length || 0);
 const completedCount = computed(() => (todosCount.value ? todos.value.filter(i => i.completed).length : 0));
@@ -17,16 +19,10 @@ const progress = computed<number | string>(() => {
 });
 
 const clearInputTodo = () => (newTodo.value = '');
-const addTodo = (): void => {
+const addTodo = () => {
   if (newTodo.value.trim() === '') return;
 
-  /**
-   * todo 每筆資料格式;
-   * id: 目前時間
-   * text: 清單文字
-   * completed: 是否已完成
-   */
-  const todo: Todo = {
+  const todo = {
     id: Date.now(),
     text: newTodo.value,
     completed: false,
@@ -34,7 +30,7 @@ const addTodo = (): void => {
   todos.value.push(todo);
   newTodo.value = '';
 };
-const removeTodo = (id: number): void => {
+const removeTodo = (id: number) => {
   const index = todos.value.findIndex(i => i.id === id);
   if (index !== -1) {
     todos.value.splice(index, 1);
@@ -42,7 +38,7 @@ const removeTodo = (id: number): void => {
 };
 
 const getTodoList = () => {
-  const arr: Todo[] | null = JSON.parse(localStorage.getItem('todo-list') as string);
+  const arr = JSON.parse(localStorage.getItem('todo-list') as string) as Todo[] | null;
   todos.value = arr ?? [];
 };
 const saveTodoList = () => localStorage.setItem('todo-list', JSON.stringify(todos.value));
@@ -73,7 +69,7 @@ onBeforeUnmount(() => {
 
     <v-card color="c-gray-100 mt-4" rounded flat>
       <v-card-item>
-        <v-card-title class="text-h6 py-4">目前項目:{{ todosCount }}</v-card-title>
+        <v-card-title class="py-4 text-h6">目前項目:{{ todosCount }}</v-card-title>
         <v-card-subtitle class="d-flex align-center justify-space-between">
           <p>未完成: {{ uncompletedCount }} | 已完成: {{ completedCount }}</p>
           <v-progress-circular :model-value="progress" rotate="360" size="35" width="4">
