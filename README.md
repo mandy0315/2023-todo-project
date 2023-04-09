@@ -2,7 +2,7 @@
 
 ![專案封面圖](https://i.imgur.com/KoFsUz3.png)
 
-- [Demo](https://mandy0315.github.io/todo_ts-project/)
+- [Demo](https://mandy0315.github.io/2023-todo-project/)
 
 ## 專案技術
 
