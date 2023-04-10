@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "composite": true,
+    "composite": true, // 項目引用需要設定
     "module": "ESNext",
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["vite.config.ts"]
+  "include": ["vite.config.ts"] // 針對 "vite.config.ts" 開的 TS 配置
 }

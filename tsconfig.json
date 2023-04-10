@@ -1,21 +1,22 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "ESNext", // 編譯生成的JS版本
     "useDefineForClassFields": true,
-    "module": "ESNext",
+    "module": "ESNext", // 生成哪種模組
     "moduleResolution": "Node",
-    "strict": true,
-    "jsx": "preserve",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "lib": ["ESNext", "DOM"],
-    "skipLibCheck": true,
-    "noEmit": true,
+    "strict": true, // 啟用所有嚴格類型檢查選項  
+    "jsx": "preserve", // 保留原始的 JSX 程式碼
+    "resolveJsonModule": true, // 允許引入 JSON 文件
+    "isolatedModules": true, // 所有文件都是 ES Module 
+    "esModuleInterop": true, // 允許 import export
+    "lib": ["ESNext", "DOM"], // 使用 ES DOM API 型別定義檔
+    "skipLibCheck": true, // 跳過 .d.ts 型別檢查
+    "noEmit": true,  // 只檢查不生成 JS 檔，交給 Vite 打包
     "paths": {
-      "@/*": ["./src/*"],
+      "@/*": ["./src/*"],  // 路徑設定
     },
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"], // 編譯檔案
+  // "references" 項目引用
+  "references": [{ "path": "./tsconfig.node.json" }] // vite.config.ts 需要型別支援，不需要轉換 JS ，設定不同 tsconfig 配置
 }
