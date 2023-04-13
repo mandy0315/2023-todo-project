@@ -4,16 +4,17 @@ import { Todo } from '@/types';
 
 // Vue3 本身是 TS 語法寫。 https://cn.vuejs.org/guide/typescript/overview.html#overview
 
-const todos = ref<Todo[]>([]);
+const todos = ref<Array<Todo>>([]); // Array<Todo> = Todo[] | []
 const newTodo = ref('');
 
-const todosCount = computed(() => todos.value?.length || 0);
+const todosCount = computed(() => todos.value?.length);
 const completedCount = computed(() => (todosCount.value ? todos.value.filter(i => i.completed).length : 0));
 const uncompletedCount = computed(() => todosCount.value - completedCount.value);
-const progress = computed<number | string>(() => {
+const progress = computed<number>(() => {
   const num = (completedCount.value / todosCount.value) * 100 || 0;
   if (!Number.isInteger(num)) {
-    return num.toFixed(1); // 轉字串
+    const roundedNum = parseFloat(num.toFixed(1));
+    return roundedNum;
   }
   return num;
 });
@@ -38,8 +39,8 @@ const removeTodo = (id: number) => {
 };
 
 const getTodoList = () => {
-  const arr = JSON.parse(localStorage.getItem('todo-list') as string) as Todo[] | null;
-  todos.value = arr ?? [];
+  const result: Todo[] | null = JSON.parse(localStorage.getItem('todo-list') as string);
+  todos.value = result ?? [];
 };
 const saveTodoList = () => localStorage.setItem('todo-list', JSON.stringify(todos.value));
 
